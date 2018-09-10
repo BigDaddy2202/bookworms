@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css?family=Chicle');
+@import url('https://fonts.googleapis.com/css?family=Chicle|Pacifico');
+.body{
+    /*background: #ffffff;*/
+    background-color: #ffffff;
+    /*background-image:  url("https://assets-cdn.github.com/images/modules/site/heroes/simple-codelines.svg");*/
+    background-repeat: repeat, repeat;
+    background-attachment: scroll, scroll;
+    background-clip: border-box, border-box;
+    background-origin: padding-box, padding-box;
+    background-position-x: 0%, 0%;
+    background-position-y: 0%, 0%;
+    background-size: auto auto, auto auto;
+    background-position: center 10%;
+    background-size: cover;
+}
+.center-align{
+  text-align: center;
+}
+.nav-top{
+  position: fixed;
+  /* top:0; */
+  /* background-color: ; */
+  width: 100%;
+  height: auto;
+  background-color: #24292e;
+  opacity: 0.7;
+  padding: 1%;
+}
+.nav{
+  color: white;
+  color: #E9E9E9;
+  overflow: hidden;
+  /* border-radius: 20%; */
+  font-size: 150%;
+  /* font-family: 'Chicle', cursive; */
+}
+.nav a{
+  color: #E9E9E9;
+  text-decoration: none;  
+}
+.nav a:hover{
+ text-decoration: none;  
+  color:#97a2b2; 
+  transition: background-color .3s linear;
+}
+/*.nav:hover{
+}
+*/
+.nav a:active{
+  color:#97a2b2;
+  background-color:#97a2b2;
+  text-decoration: none;
+}
+.desc{
+  margin-top: 10%;
+  margin-left: 5%;
+  color: #97a2b2;
+}
+.title{
+  color: black;
+}

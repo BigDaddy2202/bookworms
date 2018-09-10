@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>MY blogs</title>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+
+    <!-- FontAwesome CSS -->
+    <link rel="stylesheet" href="../static/css/font-awesome.min.css">
+
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="../static/css/swiper.min.css">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../static/style.css">
+  </head>
+</head>
+<body>
+<div class="outer-container">
+    <header class="site-header">
+        <div class="top-header-bar">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-6 flex align-items-center">
+                        <div class="header-bar-text d-none d-lg-block">
+                          {% with messages = get_flashed_messages() %}
+                          {% if messages %}
+                          {% for message in messages %}
+                          <p>Hello {{ message }}</p>
+                          {% endfor %}
+                          {% endif %}
+                          {% endwith %}
+                        </div><!-- .header-bar-text -->
+
+                        <div class="header-bar-email d-none d-lg-block">
+                        </div><!-- .header-bar-email -->
+                    </div><!-- .col -->
+
+                    <div class="col-12 col-lg-6 flex justify-content-between justify-content-lg-end align-items-center">
+                        <div class="header-bar-social d-none d-md-block">
+                            <ul class="flex align-items-center">
+                            </ul>
+                        </div><!-- .header-bar-social -->
+
+                        <div class="header-bar-search d-none d-md-block">
+                        </div><!-- .header-bar-search -->
+                    </div><!-- .col -->
+                </div><!-- .row -->
+            </div><!-- .container-fluid -->
+        </div><!-- .top-header-bar -->
+
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="site-branding flex flex-column align-items-center">
+                        <h1 class="site-title"><a href="index.html" rel="home">BookWorms</a></h1>
+                        <p class="site-description">Personal Blog</p>
+                    </div><!-- .site-branding -->
+
+                    <nav class="site-navigation">
+                        <div class="hamburger-menu d-lg-none">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div><!-- .hamburger-menu -->
+
+                        <ul class="flex-lg flex-lg-row justify-content-lg-center align-content-lg-center">
+                            <li><a href="/profile">Profile</a></li>
+                            <li><a href="/home">Home</a></li>
+                            <li><a href="/blog">Blog</a></li>
+                            <li><a href="/logout">Sign out</a></li>
+                          </ul>
+
+                        <div class="header-bar-social d-md-none">
+                            <ul class="flex justify-content-center align-items-center">
+                                <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                                <li><a href="#"><i class="fa fa-behance"></i></a></li>
+                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                            </ul>
+                        </div><!-- .header-bar-social -->
+                    </nav><!-- .site-navigation -->
+                </div><!-- .col -->
+            </div><!-- .row -->
+        </div><!-- .container -->
+    </header><!-- .site-header -->
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+              <div  style="text-align:left; font-family:Verdana;">
+                  <span class="blog_head"> <i>Write a new blog</i></span>
+              </div>
+                <form  method="post" enctype="multipart/form-data">
+                <label ><input type="text" placeholder="Title" name="title" class="blog-title"/></label>
+                <span ><input type="text" placeholder="Express yourself" name="blog" class="blog-input"/></span>
+                <br><br>
+                <span ><input type="text" placeholder="description of image and image" name="desc" class="des-input"/></span>
+                <input placeholder="insert an image" type="file" name="image" accept="image/x-png,image/gif,image/jpeg"/><br>
+                <button class="butn-blog" name="submit" value="addWBlog">
+                  Write to Blog
+                </button>
+              </form>
+            </div>
+        </div>
+        {% for post in blogs%}
+        <div class="container single-page blog-page">
+            <div class="row">
+                <div class="col-12">
+                    <div class="content-wrap">
+                            <div  style="text-align:left; font-family:Verdana;">
+                                <span class="heading_profile">{{post['title']}}</span> &nbsp <span>  {{post['post_time']}} </span>
+                            </div><!-- .posted-date -->
+                            <div class="row blog-image">
+                                    <img  src="{{url_for('static', filename='img/' + post['img'] ) }}" alt="NO : ("/>
+                                    {{post['desc']}}
+                            </div>
+                        <div class="row">
+                            <div class="col-12 ">
+                                <figure class="content-blog">
+                                  <span class="text_profile">{{post['content']}}</span>
+                                </figure><!-- .blog-page-half-img -->
+                            </div><!-- .col -->
+                          </div><!-- .col -->
+                        </div><!-- .row -->
+                    </div><!-- .content-wrap -->
+                </div><!-- .content-area -->
+          </div><!-- .col -->
+          {%endfor%}
+  </div><!-- .row -->
+
+
+
+<script type='text/javascript' src='../static/js/jquery.js'></script>
+<script type='text/javascript' src='../static/js/swiper.min.js'></script>
+<script type='text/javascript' src='../static/js/custom.js'></script>
+
+
+</body>
+</html>

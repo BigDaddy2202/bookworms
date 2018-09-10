@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{{book}} search results</title>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+
+    <!-- FontAwesome CSS -->
+    <link rel="stylesheet" href="../static/css/font-awesome.min.css">
+
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="../static/css/swiper.min.css">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../static/style.css">
+  </head>
+</head>
+<body>
+<div class="outer-container">
+    <header class="site-header">
+        <div class="top-header-bar">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-6 flex align-items-center">
+                        <div class="header-bar-text d-none d-lg-block">
+                        </div><!-- .header-bar-text -->
+                        <div class="header-bar-email d-none d-lg-block">
+                        </div><!-- .header-bar-email -->
+                    </div><!-- .col -->
+
+                    <div class="col-12 col-lg-6 flex justify-content-between justify-content-lg-end align-items-center">
+                        <div class="header-bar-social d-none d-md-block">
+                            <ul class="flex align-items-center">
+                            </ul>
+                        </div><!-- .header-bar-social -->
+
+                        <div class="header-bar-search d-none d-md-block">
+                            <form method="post">
+                                <input type="search" name="search" placeholder="Search">
+                            </form>
+                        </div><!-- .header-bar-search -->
+                    </div><!-- .col -->
+                </div><!-- .row -->
+            </div><!-- .container-fluid -->
+        </div><!-- .top-header-bar -->
+
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="site-branding flex flex-column align-items-center">
+                        <h1 class="site-title"><a href="index.html" rel="home">BookWorms</a></h1>
+                        <p class="site-description">Search Books</p>
+                    </div><!-- .site-branding -->
+
+                    <nav class="site-navigation">
+                        <div class="hamburger-menu d-lg-none">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div><!-- .hamburger-menu -->
+
+                        <ul class="flex-lg flex-lg-row justify-content-lg-center align-content-lg-center">
+                            <li><a href="/profile">Profile</a></li>
+                            <li><a href="/home">Home</a></li>
+                            <li><a href="/blog">Blog</a></li>
+                            <li><a href="/logout">Sign out</a></li>
+                          </ul>
+
+                        <div class="header-bar-social d-md-none">
+                            <ul class="flex justify-content-center align-items-center">
+                                <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                                <li><a href="#"><i class="fa fa-behance"></i></a></li>
+                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                            </ul>
+                        </div><!-- .header-bar-social -->
+
+                        <div class="header-bar-search d-md-none">
+                            <form>
+                                <input type="search" placeholder="Search">
+                            </form>
+                        </div><!-- .header-bar-search -->
+                    </nav><!-- .site-navigation -->
+                </div><!-- .col -->
+            </div><!-- .row -->
+        </div><!-- .container -->
+    </header><!-- .site-header -->
+
+    <div class="container-fluid">
+        <!-- <div class="row">
+            <div class="col-12">
+                <div class="page-header flex justify-content-center align-items-center" style="background-image: url('../static/images/img_name')">
+                    <h1>The Story</h1>
+                </div><
+            </div>
+        </div>-->
+        <span class="heading_profile">User Details</span> &nbsp </br>
+        {%if details!='Sorry! No one around you seems to have this book :('%}
+        {% for search in details%}
+        <div class="container single-page blog-page">
+            <div class="row">
+                <div class="col-12">
+                    <div class="content-wrap">
+                            <div  style="text-align:left; font-family:Verdana;">
+                                <span class="heading_profile">Name: {{search['name']}}</span> &nbsp </br>
+                                <span class="heading_profile">Contact Number: {{search['phone']}} </span> &nbsp </br>
+                            </div><!-- .posted-date -->
+                        <div class="row">
+                            <div class="col-12 ">
+                                <figure class="content-blog">
+                                  <span class="text_profile">Address: {{search['address']}} <br> Distance: {{search['distance']}} km <br>e-Mail: {{search['email']}}<br>Travel Time: {{search['tim']}}</span>
+                                </figure><!-- .blog-page-half-img -->
+                            </div><!-- .col -->
+                          </div><!-- .col -->
+
+                        </div><!-- .row -->
+
+                    </div><!-- .content-wrap -->
+                    </div><!-- .content-area -->
+          </div><!-- .col -->
+      {%endfor%}
+      {%else%}
+      <div class="container single-page blog-page">
+          <div class="row">
+              <div class="col-12">
+                  <div class="content-wrap">
+                      <div class="row">
+                          <div class="col-12 ">
+                              <figure class="content-blog">
+                                <span class="text_profile">{{details}}</span>
+                              </figure><!-- .blog-page-half-img -->
+                          </div><!-- .col -->
+                        </div><!-- .col -->
+
+                      </div><!-- .row -->
+
+                  </div><!-- .content-wrap -->
+                  </div><!-- .content-area -->
+        </div><!-- .col -->
+      {%endif%}
+    </div><!-- .row -->
+
+
+
+<script type='text/javascript' src='../static/js/jquery.js'></script>
+<script type='text/javascript' src='../static/js/swiper.min.js'></script>
+<script type='text/javascript' src='../static/js/custom.js'></script>
+
+
+</body>
+</html>
